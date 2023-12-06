@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('bahan_bakus', function (Blueprint $table) {
             $table->id();
-            $table->string('Kode_bahan')->unique();
+           // $table->string('Kode_bahan')->unique();
             $table->string('Nama_bahan');
+            $table->enum('Status',['Banyak','Sedikit','Kurang']);
             $table->string('Total_bahan');
             $table->date('Tanggal_bahan');
 

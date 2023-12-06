@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\User;
 use Filament\Facades\Filament;
+use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Auth;
 use Filament\Navigation\UserMenuItem;
 use Illuminate\Support\ServiceProvider;
@@ -26,8 +27,10 @@ class FilamentServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Filament::serving(function () {
-            // Using Vite
-        //Filament::registerViteTheme('resources/css/filament.css');
+        // Using Vite
+        Filament::registerViteTheme(
+            app(Vite::class)('resources/css/filament.css'),
+        );
 
             if(Auth::check() && Auth::user()->hasRole('admin')) {
             Filament::registerUserMenuItems([

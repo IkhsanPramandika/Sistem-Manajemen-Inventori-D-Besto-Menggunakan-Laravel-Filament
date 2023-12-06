@@ -32,7 +32,7 @@ class ProdukResource extends Resource
             ->schema([
                 Card::make()
                     ->schema([
-                        TextInput::make('Kode_menu')->required()->unique(ignorable:fn($record)=>$record),
+                      //  TextInput::make('Kode_menu')->required()->unique(ignorable:fn($record)=>$record),
                         TextInput::make('Nama_menu')->required(),
                         TextInput::make('Harga_menu')->required(),
                         ])
@@ -46,7 +46,7 @@ class ProdukResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('Kode_menu')->sortable()->searchable(),
+               // TextColumn::make('Kode_menu')->sortable()->searchable(),
                 TextColumn::make('Nama_menu')->sortable()->searchable(),
                 TextColumn::make('Harga_menu')->sortable()->searchable(),
             ])

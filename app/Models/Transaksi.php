@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Transaksi extends Model
 {
     use HasFactory;
-    protected $fillable = ['Invoice' ,'Nama_kasir', 'Total_harga' , 'Tanggal_transaksi'];
+    protected $fillable = ['Nama_kasir', 'Total_harga' ];
 }
 

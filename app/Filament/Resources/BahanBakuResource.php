@@ -9,8 +9,10 @@ use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\BadgeColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\DateTimeColumn;
 use Filament\Forms\Components\DateTimePicker;
@@ -36,10 +38,16 @@ class BahanBakuResource extends Resource
         ->schema([
             Card::make()
                 ->schema([
-                        TextInput::make('Kode_bahan')->required()->unique(ignorable:fn($record)=>$record),
+                       // TextInput::make('Kode_bahan')->required()->unique(ignorable:fn($record)=>$record),
                         TextInput::make('Nama_bahan')->required(),
+                       // Select::make('Status')
+                       // ->options([
+                        //    'Banyak' => 'Banyak',
+                        //    'Sedikit' => 'Sedikit',
+                         //   'Kurang' => 'Kurang' ,
+                     //   ]),
                         TextInput::make('Total_bahan')->required(),
-                        DateTimePicker::make('Tanggal_bahan')->hoursStep(2)->minutesStep(15)->secondsStep(10)->required(),
+                       // DateTimePicker::make('created_at')->hoursStep(2)->minutesStep(15)->secondsStep(10)->required(),
                     ])
                   
             ]);
@@ -49,10 +57,25 @@ class BahanBakuResource extends Resource
 {
     return $table
         ->columns([
-            TextColumn::make('Kode_bahan')->sortable()->searchable(),
+           // TextColumn::make('Kode_bahan')->sortable()->searchable(),
             TextColumn::make('Nama_bahan')->sortable()->searchable(),
+            BadgeColumn::make('Status')
+            ->color(function ( $record) {
+                $berat = $record->Total_bahan;
+
+                    if ($berat >= 10) {
+                        return 'success'   ;
+                    } elseif ($berat <= 10) {
+                        return 'warning';
+                    } elseif ($berat <= 2) {
+                        return 'danger';
+                    } else {
+                        return 'danger';
+                    }
+                }),
+                
             TextColumn::make('Total_bahan')->sortable()->searchable(),
-            TextColumn::make('Tanggal_bahan')->sortable()->searchable()->dateTime(),
+            TextColumn::make('created_at')->sortable()->searchable()->dateTime(),
             
             ])
         

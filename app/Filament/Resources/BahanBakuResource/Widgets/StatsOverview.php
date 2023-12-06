@@ -5,6 +5,7 @@ namespace App\Filament\Resources\BahanBakuResource\Widgets;
 use App\Models\BahanBaku;
 use Filament\Widgets\StatsOverviewWidget\Card;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
+use App\Filament\Resources\BahanBakuResource\Widgets\StatsOverview;
 
 class StatsOverview extends BaseWidget
 

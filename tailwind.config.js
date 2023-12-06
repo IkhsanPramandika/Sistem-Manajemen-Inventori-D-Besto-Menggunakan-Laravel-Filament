@@ -1,22 +1,19 @@
-const colors = require('tailwindcss/colors')
+import colors from 'tailwindcss/colors'
+import forms from '@tailwindcss/forms'
+import typography from '@tailwindcss/typography'
 
-module.exports = {
-    content: [ "./resources/**/*.blade.php","./vendor/filament/**/*.blade.php"],
-    
-    darkMode: 'class',
+export default {
+    content: ['./resources/**/*.blade.php', './vendor/filament/**/*.blade.php'],
+    darkMode:'class',
     theme: {
         extend: {
             colors: {
-                danger: colors.rose,
+                danger: colors.red,
                 primary: colors.red,
-                success: colors.blue,
-                warning: colors.amber,
+                success: colors.green,
+                warning: colors.yellow,
             },
-         
         },
     },
-    plugins: [
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/typography'),
-    ],
+    plugins: [forms, typography],
 }

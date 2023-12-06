@@ -35,10 +35,10 @@ class TransaksiResource extends Resource
             ->schema([
                     Card::make()
                         ->schema([
-                            TextInput::make('Invoice')->required()->unique(ignorable:fn($record)=>$record),
+                          //  TextInput::make('id')->required()->unique(ignorable:fn($record)=>$record),
                             TextInput::make('Nama_kasir')->required(),
                             TextInput::make('Total_harga')->required(),
-                            DateTimePicker::make('Tanggal_transaksi')->required(),
+                         
                             
                             ])
                     
@@ -50,10 +50,10 @@ class TransaksiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('Invoice')->sortable()->searchable(),
+                TextColumn::make('id')->sortable()->searchable(),
                 TextColumn::make('Nama_kasir')->sortable()->searchable(),
                 TextColumn::make('Total_harga')->sortable()->searchable(),
-                TextColumn::make('Tanggal_transaksi')->sortable()->searchable()->dateTime(),
+                TextColumn::make('created_at')->sortable()->searchable()->dateTime(),
             ])
             ->filters([
                 //

@@ -36,11 +36,11 @@ class SupplierResource extends Resource
         ->schema([
             Card::make()
                 ->schema([
-                    TextInput::make('Kode_supplier')->required()->unique(ignorable: fn($record) => $record),
+                  //  TextInput::make('Kode_supplier')->required()->unique(ignorable: fn($record) => $record),
                     TextInput::make('Nama_supplier')->required(),
                     TextInput::make('Nomor_telepon')->required(),
                     TextInput::make('Nama_produk_supplier')->required(),
-                   // SpatieMediaLibraryFileUpload::make('Informasi_produk')->required(),
+                 //  SpatieMediaLibraryFileUpload::make('Informasi_produk')->required(),
                 ])
         ]);
     
@@ -52,13 +52,13 @@ class SupplierResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('Kode_supplier')->sortable()->searchable(),
+             //   TextColumn::make('Kode_supplier')->sortable()->searchable(),
                 TextColumn::make('Nama_supplier')->sortable()->searchable(),
                 TextColumn::make('Nomor_telepon')->sortable()->searchable(),
                 TextColumn::make('Nama_produk_supplier')->sortable()->searchable(),
                // ImageColumn::make('Informasi_produk'),
-              //  SpatieMediaLibraryImageColumn::make('Informasi_produk'),
-               // SpatieMediaLibraryFileUpload::make('Informasi_produk'),
+            //    SpatieMediaLibraryImageColumn::make('Informasi_produk'),
+               
             ])
             ->filters([
                 //

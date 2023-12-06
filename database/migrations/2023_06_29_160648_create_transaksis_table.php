@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->string('Invoice')->unique();
+           // $table->string('Invoice')->unique();
             $table->string('Nama_kasir');
             $table->string('Total_harga');
-            $table->date('Tanggal_tranksaksi');
+            $table->date('created_at');
             $table->timestamps();
         });
     }

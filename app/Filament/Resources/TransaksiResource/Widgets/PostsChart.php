@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Widgets;
+namespace App\Filament\Resources\TransaksiResource\Widgets;
 
 use Carbon\Carbon;
 use App\Models\Transaksi;
@@ -8,9 +8,9 @@ use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use Filament\Widgets\LineChartWidget;
 
-class TransaksiChart extends LineChartWidget
+class PostsChart extends LineChartWidget
 {
-    protected static ?string $heading = 'Data Transaksi ';
+    protected static ?string $heading = 'Chart';
 
     protected function getData(): array
 {
